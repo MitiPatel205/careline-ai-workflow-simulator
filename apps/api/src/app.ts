@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { healthRouter } from "./routes/health.routes.js";
+import { workflowRouter } from "./routes/workflow.routes.js";
 
 export const app = express();
 
@@ -14,6 +15,7 @@ app.get("/", (_request, response) => {
 });
 
 app.use("/api/health", healthRouter);
+app.use("/api/workflows", workflowRouter);
 
 app.use((_request, response) => {
   response.status(404).json({
