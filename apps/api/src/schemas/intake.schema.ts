@@ -9,3 +9,11 @@ export const intakeSchema = z.object({
 });
 
 export type IntakeInput = z.infer<typeof intakeSchema>;
+
+export const updateWorkflowStatusSchema = z.object({
+  status: z.enum(["received", "triaged", "scheduled", "completed"]),
+});
+
+export type UpdateWorkflowStatusInput = z.infer<
+  typeof updateWorkflowStatusSchema
+>;
